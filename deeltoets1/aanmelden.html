@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Over Communication & Multimedia Design in Amsterdam</title>
-		<meta charset="UTF-8">
-		<meta author="Daniël Laan">
-		<meta description="Informatie over de opleiding CMD bij de HvA in Amsterdam">
-		<meta keywords="html5,cmd,amstedam,communication,multimedia,design,informatie">
-	</head>
+  <head>
+    <title>Over Communication & Multimedia Design in Amsterdam</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Daniël Laan"/>
+    <meta name="description" content="Informatie over de opleiding CMD bij de HvA in Amsterdam"/>
+    <meta name="keywords" content="html5,cmd,amstedam,communication,multimedia,design,informatie"/>
+  </head>
 
-	<body>
+  <body>
     <form>
         <fieldset>
           <legend>Contactgegevens</legend>
@@ -19,14 +19,14 @@
           <label for="company">Bedrijf</label>
           <input type="text" id="company" placeholder="Bedrijfsnaam"/>
           
-          <label for="street">Adres</label>
-          <input type="text" id="street" placeholder="Uwstraat 12c"/>
+          <label for="userstreet">Adres</label>
+          <input type="text" id="userstreet" placeholder="Uwstraat 12c"/>
           
-          <label for="zip">Postcode</label>
-          <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" id="zip" placeholder="1234 AZ"/>
+          <label for="userzip">Postcode</label>
+          <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" id="userzip" placeholder="1234 AZ"/>
 
-          <label for="number">Plaats</label>
-          <input type="text" id="number" placeholder="Amsterdam"/>
+          <label for="usercity">Plaats</label>
+          <input type="text" id="usercity" placeholder="Amsterdam"/>
           
           <label for="tel">Telefoon</label>
           <input type="tel"  id="tel" placeholder="06-12345678"/>
@@ -104,11 +104,11 @@
             <label for="stagenaam">Bedrijfsnaam</label>
             <input type="text" id="stagenaam" placeholder="Bedrijfsnaam"/>
             
-            <label for="street">Adres</label>
-            <input type="text" id="street" placeholder="Uwstraat 12c"/>
+            <label for="companystreet">Adres</label>
+            <input type="text" id="companystreet" placeholder="Uwstraat 12c"/>
             
-            <label for="zip">Postcode</label>
-            <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" id="zip" placeholder="1234 AZ"/>
+            <label for="companyzip">Postcode</label>
+            <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" id="companyzip" placeholder="1234 AZ"/>
 
             <label for="number">Plaats</label>
             <input type="text" id="number" placeholder="Amsterdam"/>
@@ -116,14 +116,17 @@
             <label for="sector">Sector</label>
             <input type="text"  id="sector" placeholder="Bijv. IT"/>
 
-            <label for="corebusiness">Core Business</label>
-            <input type="text" id="core business" placeholder="Bijv. Smart tv apps"/>
+            <label for="core-business">Core Business</label>
+            <input type="text" id="core-business" placeholder="Bijv. Smart tv apps"/>
 
             <label for="opmerkingstage">Opmerking</label>
             <textarea id="opmerkingstage" rows="8" cols="80" placeholder="Vragen en/of opmerkingen? Vul deze hier in"></textarea>
           </fieldset>
         </fieldset>
+        <input type="submit"/>
     </form>
-
-	</body>
+    <footer id="sticky-copyright">
+      <p>Ontwikkeld door: Daniël Laan</p>
+    </footer>
+  </body>
 </html>
