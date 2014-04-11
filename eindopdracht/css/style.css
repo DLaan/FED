@@ -1,0 +1,326 @@
+/* Maak van deze html5 elementen block elementen. */
+article, aside, figure, footer, header, nav, section {
+	display: block;
+}
+
+/* universal selector: selecteert alle elementen. */
+* {
+	background: #fff;
+	font: 100%/1.5 georgia;
+	color: #111;
+}
+
+/* type selector: selecteert alle elementen van type 'a'. */
+a {
+	color: rgba(50,200,200,0.9);
+}
+
+/**
+ * Combinators
+ */
+
+/* multiple ( , ) selector: selecteert alle h1, h2 en h3 elementen op de pagina. */
+h1, h2, h3 {
+	font-weight: normal;
+	font-size: 150%;
+	text-shadow: 0 0 .2em #333; /* text-shadow: h-shadow v-shadow blur color |none|initial|inherit;*/
+}
+
+h1, h2, h3, p, a, ol, li, nav {
+	background-color: rgba(0,0,0,0.0); /* maak achtergrond van inline-elementen transparant */
+}
+
+/* child ( > )selector: selecteert alleen alle section elementen die direct onder alle articles komen in de DOM tree.
+sections die nog een laag dieper staan worden genegeerd. */
+article > section { 
+	margin: 0 auto;
+	/* vette gradient */
+	background: rgb(191,210,85); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(174,43,188,1) 15%, rgba(0,130,147,1) 49%, rgba(158,203,45,1) 69%, rgba(255,58,58,1) 93%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(191,210,85,1)), color-stop(15%,rgba(174,43,188,1)), color-stop(49%,rgba(0,130,147,1)), color-stop(69%,rgba(158,203,45,1)), color-stop(93%,rgba(255,58,58,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(174,43,188,1) 15%,rgba(0,130,147,1) 49%,rgba(158,203,45,1) 69%,rgba(255,58,58,1) 93%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(174,43,188,1) 15%,rgba(0,130,147,1) 49%,rgba(158,203,45,1) 69%,rgba(255,58,58,1) 93%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(191,210,85,1) 0%,rgba(174,43,188,1) 15%,rgba(0,130,147,1) 49%,rgba(158,203,45,1) 69%,rgba(255,58,58,1) 93%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%,rgba(174,43,188,1) 15%,rgba(0,130,147,1) 49%,rgba(158,203,45,1) 69%,rgba(255,58,58,1) 93%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#ff3a3a',GradientType=0 ); /* IE6-9 */
+	/* defacto box-shadow */
+	-webkit-box-shadow: 4px 6px 5px 0px rgba(85, 160, 110, 0.75);
+	-moz-box-shadow:    4px 6px 5px 0px rgba(85, 160, 110, 0.75);
+	box-shadow:         4px 6px 5px 0px rgba(85, 160, 110, 0.75);
+}
+
+
+/* descendant (   ) selector: selecteert alle p elementen die ergens een afstammeling zijn van een article, of er nu iets tussen zit of niet.*/
+article p { 
+	text-shadow: 0 0.1em 0.5em #cccc00;
+	}
+
+/* adjacent (sibling) ( + ) selector: selecteert alle p elementen die direct naast een andere p staan in de DOM tree. */
+p + p {
+	/* 3d rotate transform */
+	-webkit-transform: rotateX(30deg) rotateY(45deg) rotateZ(180deg);
+	-moz-transform: rotateX(30deg) rotateY(45deg) rotateZ(180deg);
+	-o-transform: rotateX(30deg) rotateY(45deg) rotateZ(180deg);
+	-ms-transform: rotateX(30deg) rotateY(45deg) rotateZ(180deg);
+	transform: rotateX(30deg) rotateY(45deg) rotateZ(180deg);
+
+	/* transition */
+	-webkit-transition: transform 0.5s ease-in-out;
+	-moz-transition: transform 0.5s ease-in-out;
+	-o-transition: transform 0.5s ease-in-out;
+	transition: transform 0.5s ease-in-out;
+}
+
+p + p:hover {
+	/* 3d rotate transform */
+	-webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	-moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	-o-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	-ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+	/* transition */
+	-webkit-transition: transform 0.5s ease-in-out;
+	-moz-transition: transform 0.5s ease-in-out;
+	-o-transition: transform 0.5s ease-in-out;
+	transition: transform 0.5s ease-in-out;
+}
+
+/* attribute selector: selecteert alle elementen op de pagina die het attribuut 'class' hebben. */
+/* Dit is alleen de footer */
+*[class] {
+	border:5px inset rgba(200,50,36,0.8);
+}
+
+/* attribute (met value) selector: selecteert alle alleen de img elementen waarvan de waarde van het src attribuut 'img/beroepen.jpg' is. Alleen dát plaatje dus. */
+img[src="img/beroepen.jpg"] {
+	margin: 0 2.5%;
+	width: 95%;
+}
+
+/**
+ * Pseudo-class en -element selectors
+ */
+
+/* first-child pseudo class: selecteert alle eerstvolgende elementen binnen alle section elementen. */
+article:first-child {
+	backgroundcolor: white;
+}
+
+/* last-child pseudo class: selecteert alleen p elementen van de laatste section als deze section een directe 'child' is van een article. */
+article > section:last-child p {
+	font-style: italic;
+}
+
+/* nth-child pseudo class: selecteert alleen de oneven li elementen die binnen een ordered list staan. */
+ol > li:nth-child(odd) {
+	width:15em;
+	background: rgba(200,20,100,0.5);
+}
+
+/* nth-child pseudo class: selecteert alleen de even li elementen die binnen een ordered list staan. */
+ol > li:nth-child(even) {
+	width:15em;
+	background: rgba(100,20,200,0.5);
+}
+
+/* nth-child pseudo class: selecteert de labels die als parent een fieldset hebben en als grandparent een form, in de getalenreeks: 1, 3, 5, 7 enz. */
+form fieldset label:nth-child(2n+1) {
+	background: none;
+}
+
+/* nth-of-type pseudo class: selecteert alleen de link van het eerste item uit een ordered list. */
+ol > li:nth-of-type(1) > a {
+	color: red;
+	-webkit-transition: color 0.5s ease-in-out;
+	-moz-transition: color 0.5s ease-in-out;
+	-o-transition: color 0.5s ease-in-out;
+	transition: color 0.5s ease-in-out;
+}
+
+ol > li > a:hover {
+	color: white;
+	-webkit-transition: color 0.5s ease-in-out;
+	-moz-transition: color 0.5s ease-in-out;
+	-o-transition: color 0.5s ease-in-out;
+	transition: color 0.5s ease-in-out;
+}
+
+/* last-of-type pseudo class: selecteert alleen het laatste label die als parent een fieldset en als grandparent een form heeft. */
+form fieldset label:last-of-type {
+	background: none;
+}
+
+/* only-of-type pseudo class: selecteert alleen de textarea's die de enige textarea's in hun parents zijn. */
+form fieldset textarea:only-of-type {
+	background: none;
+}
+
+/* transitions over het video element. */
+video {
+   -webkit-border-radius: 63px 63px 63px 63px / 108px 72px 72px 108px;
+     	   border-radius: 50%  50%  50%  50%  / 60%   40%   40%  60%;
+	-webkit-transition: border-radius .3s ease-out;  
+       -moz-transition: border-radius .3s ease-out; 
+         -o-transition: border-radius .3s ease-out; 
+            transition: border-radius .3s ease-out;
+}
+
+/* dynamic pseudo class, hover: selecteert alle video elementen waarover wordt gehovert met de muis. */
+video:hover {
+	-webkit-border-radius: 0;
+			border-radius: 0;	
+	-webkit-transition: border-radius .4s ease-out;  
+       -moz-transition: border-radius .4s ease-out; 
+         -o-transition: border-radius .4s ease-out; 
+            transition: border-radius .4s ease-out;
+}
+
+/* dynamic pseudo class, focus: selecteert alle elementen die op dat moment focus hebben (dus keyboard commando's accepteren). */
+:focus {
+	box-shadow: inset 0 0 2px 1px blue,
+}
+
+/* first-line pseudo class: selecteert de eerste regel uit de inhoud van alle p elementen op de pagina. */
+p:first-line{
+	text-transform: uppercase;
+}
+
+/* first-letter pseudo class: selecteert de eerste letter uit de inhoud van alle p elementen op de pagina. */
+p:first-letter {
+	font-size: 2em;
+}
+
+blockquote {
+	padding: 0.5em;
+	/* een regenboog box-shadow aan de binnenkant, van buiten naar binnen */
+	box-shadow: inset 0 0 2px 1px red,
+	            inset 0 0 2px 2px orange,
+	            inset 0 0 2px 3px yellow,
+	            inset 0 0 2px 4px green,
+	            inset 0 0 2px 5px lightblue,
+	            inset 0 0 2px 6px blue,
+	            inset 0 0 2px 7px violet,
+
+				-6px -6px 8px -4px rgba(255,0,0,0.75),
+	            6px -6px 8px -4px rgba(0,255,0,0.75),
+	            6px 6px 8px -4px rgba(255,255,0,0.75),
+	            -6px 6px 8px -4px rgba(0,0,255,0.75);
+	            /* ^ en een regenboog box-shadow aan de buitenkant, aan iedere kant een andere kleur.*/
+	}
+
+/* :before pseudo class: creeert vóór elke blokquote een groene openings quote. */
+blockquote:before { 
+	content: open-quote;
+	color: green; 
+	font-size: 2em;
+}
+
+/* :after pseudo class: En voeg een blauwe close-quote in na de blockquote; */
+blockquote:after { 
+	content: close-quote;
+	color: blue; 
+	font-size: 2em;
+}
+
+fieldset {
+	border: 0;
+	border-radius: 1em;
+	box-shadow: 0 0 1em currentColor;
+	padding: 1em;
+}
+
+fieldset + fieldset {
+	margin: 2em 0 0;
+}
+
+legend {
+	background: none;
+	font-size: 1.4em;
+	position: absolute;
+	right: 2em;
+}
+
+legend + ol {
+	padding: 2em 0 0;
+	list-style: none;
+}
+
+[for="naam"]:after,
+[for="email"]:after {
+	content: " *";
+	color: red;
+}
+input,
+textarea {
+	display: block;
+	width: 100%;
+	box-sizing: border-box; /* padding en borders binnen het box-model in plaats van daarbuiten */
+	font-size: 1.2em;
+	border-radius: .7em;
+	box-shadow: inset .1em .1em .2em rgba(0,0,0,.5);
+	border: none;
+	transition: .5s;
+	margin: .3em 0;
+	padding: .2em;
+}
+
+input:hover,
+textarea:hover {
+	box-shadow: inset 0 0 0 2px hsla(60,100%,50%,.6);
+}
+
+input:focus,
+textarea:focus {
+	box-shadow: inset 0 0 0 2px hsla(180,100%,50%,.6);
+	padding: .4em .2em;
+}
+
+[for="opmerkingproject"] {
+	display: block;
+	clear: left;
+	margin-top: 1em;
+}
+
+[placeholder] {
+	text-shadow: 0 0 .1em #333;
+	color: teal;
+}
+
+
+[type="submit"] {
+	background: rgb(216,224,222); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(216,224,222,1) 0%, rgba(174,191,188,1) 22%, rgba(153,175,171,1) 33%, rgba(142,166,162,1) 50%, rgba(130,157,152,1) 67%, rgba(78,92,90,1) 82%, rgba(14,14,14,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(216,224,222,1)), color-stop(22%,rgba(174,191,188,1)), color-stop(33%,rgba(153,175,171,1)), color-stop(50%,rgba(142,166,162,1)), color-stop(67%,rgba(130,157,152,1)), color-stop(82%,rgba(78,92,90,1)), color-stop(100%,rgba(14,14,14,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(216,224,222,1) 0%,rgba(174,191,188,1) 22%,rgba(153,175,171,1) 33%,rgba(142,166,162,1) 50%,rgba(130,157,152,1) 67%,rgba(78,92,90,1) 82%,rgba(14,14,14,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e0de', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+}
+
+[type="submit"]:hover {
+	background: rgb(191,210,85); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(191,210,85,1)), color-stop(50%,rgba(142,185,42,1)), color-stop(51%,rgba(114,170,0,1)), color-stop(100%,rgba(158,203,45,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(191,210,85,1) 0%,rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
+}
+
+fieldset > fieldset {
+	box-shadow: none;
+	border: 0.1em dotted grey;
+}
+
+fieldset:nth-of-type(3) label:nth-of-type(2),
+fieldset:nth-of-type(3) label:nth-of-type(3) {
+	display: block;
+	clear: left;
+}
+
+form {
+	margin: 0 auto;
+}

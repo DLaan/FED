@@ -1,0 +1,725 @@
+/*  Front-end - Deeltoets3
+    Daniel Laan
+    500658217
+
+/* Firefox maakt de pixel ratio gelijk aan die van het systeem (125% / 1.25x). 
+Work around: Zoom daarom 2x uit in firefox om te zien hoe de site er uit komt te zien als de gebruiker de dpi instellingen in het besturingssysteem op 100% heeft staan. */
+
+/*#######################*/
+/*####### Inhoud ########*/
+/*#######################*/
+
+/* CSS reset
+/* Header en globals
+/* Navigatie
+/* Formulier 
+/* Start OverCMD 
+/* Aside mayhem
+
+/*#######################*/
+/*### Start CSS reset ###*/
+/*#######################*/
+
+/* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+body {
+    line-height:1;
+    font-size: 16px; 
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+nav ul,
+ol {
+    list-style:none;
+}
+blockquote, q {
+    quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    color: teal;
+}
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+del {
+    text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+input, select {
+    vertical-align:middle;
+}
+
+/*#######################*/
+/*## Header en globals ##*/
+/*#######################*/
+
+body {
+    background-color: #222222;
+    color: #EEEEEE;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+header {
+    height:6em;
+}
+/* div nodig om logo naast en vertikaal in het midden van de menu knop te krijgen */
+#banner {
+    margin-left: 6em;
+    height: 5em;
+    line-height: 5.5em;
+}
+header img {
+    max-width: 95%;
+    vertical-align: middle;
+}
+h1,h3 {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    text-align: left;
+    font-size: 2em;
+    line-height: 1.5em;
+    margin: 0 0 .5em .5em;
+}
+header > h1 {
+    margin-top: .5em;
+}
+h2 {
+    text-align: left;
+    margin-bottom: 0.2em;
+    font-size: 2em;
+}
+p { 
+    font-size: 1.1em;
+    line-height: 1.3em;
+}
+
+
+/*##############################################*/
+/*################# Navigatie ##################*/
+/*### Bron: codepen.io/joesnellpdx/pen/ktGdx ###*/
+/*##############################################*/
+
+.menu-link {
+    font-size: 6em;  
+    font-family: verdana !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    height: .9em;
+    width:.9em;
+    background:#777;
+    cursor:pointer;
+    position:absolute;
+    top:0em;
+    left:0;
+    border:0.05em solid #555;
+}
+.menu-link:after {
+    content: '\2261';
+    color: #fff;
+    position: absolute;
+    top: .39em;
+    left: .036em;
+    line-height: 0em;
+}
+.menu-link:hover {
+  text-decoration: none;
+  background-color: #222222;
+}
+.menu li a {
+    background-color: #222222;
+    color: #999999;
+    display: inline-block;
+    height: 1em;
+    line-height: 1em;
+    padding: 0.5em;
+    text-decoration: none;
+    text-shadow: none;
+    width: 100%;
+}
+.menu li:first-of-type a {
+    border-top: 1px solid #333333;
+}
+.menu li:last-of-type a {
+    border-bottom: 1px solid #333333;
+}
+.menu li a:hover {
+  color: #aaa;
+  background-color: #333333;
+}
+/* leuke selector: Selecteer het id 'menu', dat niet de target van de body is*/
+body:not(:target) #menu {
+  margin: 0;
+  padding-top: 9.9em;
+  position: absolute;
+  top: -10em;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+body:not(:target) #submenu {
+  margin: 0;
+  position: relative;
+  z-index: 1000;
+}
+body:not(:target) #menu li {
+  width: 100%;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+  -webkit-transition: height .25s;
+  -moz-transition: height .25s;
+  -o-transition: height .25s;
+  transition: height .25s;
+}
+/* selecteer de target van het id 'menu', als de body niet de target is.*/
+body:not(:target) #menu:target {
+  z-index: 1001;
+}
+body:not(:target) #menu:target li {
+  height: 2em;
+  line-height: auto;
+  overflow: visible;
+  -webkit-transition: height .25s;
+  -moz-transition: height .25s;
+  -o-transition: height .25s;
+  transition: height .25s;
+}
+body:not(:target) #menu:target .back {
+  height: 0;
+  line-height: 0;
+}
+body:not(:target) #menu:target .back a {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  height: auto;
+  position: absolute;
+  top: -101em;
+  bottom: -101em;
+  left: 0;
+  right: 0;
+  text-indent: -999em;
+  z-index: -1;
+}
+
+/* Voor desktop en laptop schermen: */
+@media screen and (min-width: 43em) {
+    .menu-link {
+    	display: none;
+    }
+    body:not(:target) #menu {
+    	padding-top: 0;
+    }
+    body:not(:target) #menu li {
+    	display: inline;
+    	border: none;
+  	}
+    body:not(:target) #menu li a {
+    	color: #555555;
+    	font-weight: bold;
+    	text-shadow: inherit;
+    	line-height: 1em;
+    	padding: .75em;
+    	height: 2em;
+    	width: auto;
+    	border: none;
+    	background-color: transparent;
+  	}
+    body:not(:target) #menu li a:hover {
+    	color: white;
+    	text-shadow: 0 0 .2em white;
+    	transition: .2s;
+  	}
+  	body:not(:target) #menu .back {
+    display: none;
+  	}
+    nav {
+        position: relative;
+        margin-top: 7em;
+    }
+    nav ul {
+        display: inline;
+        background-color: black;
+    } 
+    #menu li {
+        position: relative;
+  	}
+    #menu .submenu {
+        display: none;
+        position: absolute;
+        top: 2em;
+        left: 0;
+        width: 10em;
+  	}  
+    #menu li:hover .submenu {
+        display: block;
+  	}
+}
+
+/*#######################*/
+/*###### Formulier ######*/
+/*#######################*/
+
+form, footer, aside {
+    background-color: #1C1C1C;
+    border: 1px solid #080808;
+    box-shadow: 0 0 1px #444444 inset;
+}
+form, fieldset, aside {  
+    border-radius: .75em;
+}
+fieldset {
+    background-color: #1E1E1E;
+    border: 1px solid #0E0E0E;
+    box-shadow: 0 0 1.2em #292929 inset;
+}
+legend,
+aside h3 {
+    background: none;
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+}
+label, footer {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+}
+fieldset input,
+fieldset textarea {
+    background-color: #DDEEFF;
+    border: 1px solid #FFFFFF;
+    color: #666666;
+    transition: .4s;
+    font-family: Arial,Helvetica,sans-serif;
+    outline: medium none;
+}
+fieldset fieldset {
+    background-color: #2D2D2D;
+}
+[type="submit"] {
+    background-color: #D0ECFD;
+    border: 1px solid #F4F4F4;
+    border-radius: 0.5em;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #1C1C1C;
+}
+[type="submit"]:hover {
+    background-color: #DCF2FF;
+    border: 1px solid #FFFFFF;
+}
+[type="submit"]:hover,
+input:hover,
+textarea:hover {
+    box-shadow: 0 0 0.5em #ADD8E6;
+    border: 1px solid #FFFFFF;
+}
+input:focus, 
+textarea:focus {
+    box-shadow: inset 0 0 0.5em #77BBDD;
+    background-color: #FFFFFF;
+}
+form {
+    max-width: 95%;
+    margin: 3.5em auto 0;
+}
+
+fieldset {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 95%;
+    margin: 1em auto 0;
+    padding: 1em;
+}
+legend,
+aside h3 {
+    font-size: 1.3em;
+}
+
+fieldset input,
+fieldset textarea {
+    width: 95%;
+    font-size: 1.3em;
+    padding: .3em;
+}
+fieldset fieldset {
+    width: 95%;
+}
+fieldset label {
+    display: block;
+    line-height: 1.5em;
+    font-size: 1.3em;
+}
+fieldset:last-of-type {
+	margin-bottom: 1em;
+}
+/* selecteer het eerste element waarvan het 'type' submit is.*/
+[type="submit"]:first-of-type {
+    margin: 1em 5%;
+    width: 90%;
+    height: 2em;
+    font-size: 1.5em;
+}
+
+/* Voor desktop en laptop scermen */
+@media screen and (min-width: 43em) {
+    form {
+        margin: 6em auto;
+        padding: 1em;
+        width: 90%;
+        max-width: 40em;
+    }
+    h1 {
+        margin-bottom: -.4em;
+        font-size: 2.5em;
+    }
+    header h1 {
+        position: absolute;
+        padding: 0; 
+        right: 1em;
+        margin-bottom: -.5em;
+        font-size: 2em;
+        top: 0;
+    }
+    #banner {
+        margin-left: 1em;
+        height: 5em;
+        line-height: 5.5em;
+    }
+    #main-nav { 
+        margin-top: 11.5em;
+    }
+    fieldset {
+        padding: 1.5em .8em;
+        margin-top: 1em;
+    }
+
+    legend {
+        font-size: 1em;
+        letter-spacing: .08em;
+    }
+    label {
+        font-size: .8em;
+        letter-spacing: .08em;
+        line-height: 2em;
+    }
+    fieldset input,
+    fieldset textarea {
+        padding: .25em .1em;
+        display: block;
+        width: 99%;
+        font-size: 1.5em;
+    }
+    fieldset fieldset {
+        width: 95%;
+    }
+    [type="submit"]:first-of-type {
+	    margin: 1em 1em auto;
+	    width: 15em;
+	    height: 2em;
+	    font-size: 1.5em;
+    }
+}
+
+footer {
+    margin: 1em auto 0;
+    border-radius: .75em .75em 0 0;
+    max-width: 95%;
+    padding-top: 1em;
+}
+footer li {
+    width: 12em;
+    font-size: 1.2em;
+    margin: 1em auto 0 2em;
+}
+footer li ul li {
+
+    width: 12em;
+    font-size: 1em;
+    margin: 0;
+}
+footer h3 {
+    margin: 0 0 0 1em;
+}
+footer p {
+    font-size: 1.2em;
+    margin: 0 auto 0 2em;
+}
+/*nthmaster.com: selecteer de 6de p uit de footer, en alles daarboven in de footer.*/
+footer p:nth-of-type(-n+6) {
+    margin-bottom: -2em;
+}
+footer p:nth-of-type(7) {
+    max-width: 25em;
+}
+footer form {
+    margin: 1em auto;
+    padding: 0 1em;
+    width: 90%;
+}
+footer input {
+    font-size: 1.4em;
+    padding: 0.5em;
+    margin: 2em auto 1em;
+    display: block;
+}
+[type="submit"]:last-of-type {
+    height: 3em;
+    font-size: 1.2em;
+    width: 90%;
+    margin: 2em auto;
+}
+footer h3:nth-of-type(3) {
+    margin-top: 2em;
+    margin-bottom: -1em;
+}
+footer > a:last-of-type {
+    color: yellow;
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+}
+footer section:last-of-type {
+    margin-bottom: 2em;
+}
+
+/* Voor desktop en laptop schermen: */
+@media screen and (min-width: 43em) {
+    /* nodig om footer descendants in het midden te krijgen */
+    #center-box {
+        text-align: center;
+        display: block;
+        margin-bottom: 3em;
+    }
+    footer nav { 
+        margin-top:0;
+    }
+    footer section {
+        margin: 0 0 2em 1em;
+        width: 20em;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+    footer section:first-of-type {
+    	margin-top: 2em;
+	}
+}
+
+/*#######################*/
+/*#### Start OverCMD ####*/
+/*#######################*/
+
+article {
+    background-color: #1C1C1C;
+    border: 1px solid #080808;
+    box-shadow: 0 0 .08em #444444 inset;
+    border-radius: .8em;
+}
+h2 {
+    font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+    font-weight: normal;
+}
+blockquote {
+	font-family: Century Gothic,Myriad Pro,Arial,Helvetica,sans-serif;
+	background: #f9f9f9;
+	border-left: .5em solid #ccc;
+	margin: 1.5em .4em;
+	padding: 0.7em .4em;
+	box-shadow: 0 0 1px #444444 inset;
+}
+/* :before pseudo class: creeert vóór elke blokquote een groene openings quote. */
+blockquote:before {
+	color: #ccc;
+	content: "\201C";
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+blockquote p {
+	color: #1c1c1c;
+	text-align: center;
+}
+p + p,  /* adjacent (sibling) ( + ) selector: selecteert alle p elementen die direct naast een andere p staan in de DOM tree. */
+video,
+section + section {
+    margin-top: 2em;
+}
+p:last-of-type {
+    margin-top: 2em;
+}
+/* transitions over het video element. */
+video {
+   -webkit-border-radius: 63px 63px 63px 63px / 108px 72px 72px 108px;
+           border-radius: 50%  80%  50%  10%  / 90%  60%  80%  30%;
+    -webkit-transition: border-radius .3s ease-out;  
+       -moz-transition: border-radius .3s ease-out; 
+         -o-transition: border-radius .3s ease-out; 
+            transition: border-radius .3s ease-out;
+        max-width:100%;
+}
+/* dynamic pseudo class, hover: selecteert alle video elementen waarover wordt gehovert met de muis. */
+video:hover {
+    -webkit-border-radius: 0;
+            border-radius: 0;   
+    -webkit-transition: border-radius .4s ease-out;  
+       -moz-transition: border-radius .4s ease-out; 
+         -o-transition: border-radius .4s ease-out; 
+            transition: border-radius .4s ease-out;
+}
+
+article, aside {
+    margin: 4em auto;
+    padding: 1em;
+    width: 90%;
+}
+article img {
+    max-width: 100%;
+}
+aside h2 a {
+    color: white;
+    text-decoration: none;
+}
+    aside h3 {
+    color: white;
+    text-decoration: none;
+}
+
+/* Voor desktop en laptop schermen */
+@media screen and (min-width: 43em) {
+    article {
+        margin: 6em auto;
+        padding: 1em;
+        max-width: 40em;
+    }
+    h2 {
+        text-align: left;
+        margin-bottom: 0.2em;
+        font-size: 2em;
+    }
+    ol { 
+        margin: 0 0 1em 1em;
+    }
+    article h3 {
+        font-size: 1.5em;
+    }
+    aside {
+        max-width: 40em;
+    }
+}
+
+/* aside mayhem voor alleen de breedste schermen*/
+@media screen and (min-width: 100em) {
+	/* voor de eerste aside (laatste mededelingen) */
+    aside:first-of-type {
+        position: absolute;
+        top: 8em;
+        left: 5%;
+        max-width: 20em;
+        z-index: -1;
+    }
+    aside:first-of-type > section {
+        position: relative;
+    }
+    aside:last-of-type 
+    /* voor de laatste aside (uitagenda) */{
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        top: 8em;
+        right: 5%;
+        max-width: 20em;
+        z-index: -1;
+        margin-top: -150em;
+        margin-right: -50em;
+        margin-bottom: 60em;
+    }
+    /* Vette shit, dat position:sticky, maareh? Browser support? Enter Modernizr */
+	.no-csspositionsticky aside:last-of-type {
+	    position: absolute;
+	    max-width: 20em;
+	    right: 5%;
+	    top: 8em;
+	    z-index: -1;
+	    margin: 4em 0 0 0;
+	}
+    footer {
+        z-index: 1;
+        position: relative;
+        margin-top: 0em;
+    }
+    article {
+    	margin-bottom: 30em;
+    }
+	.no-csspositionsticky article {
+		margin-bottom: 1em;
+	}
+}
+
+
+
